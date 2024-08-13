@@ -20,9 +20,9 @@ pipeline {
                 withCredentials([usernamePassword(credentialsId: 'dockerhub-pwd', passwordVariable: 'PASS', usernameVariable: 'USER')]) {
                     sh "echo $PASS | docker login -u $USER --password-stdin"
                     sh 'docker push rajeev20/projectfinance:v1'
-            }
+            
         }
-        
+          } 
      stage('Deploy') {
             steps {
                script {
@@ -32,4 +32,3 @@ pipeline {
         }
     }
  }
-
